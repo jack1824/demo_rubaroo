@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Timer from "../components/Timer";
 import VideoBg from "/Main.mp4";       // Ensure this path is correct
-import PhoneBg from "../../public/Mainsmall.mp4"; // Ensure this path is correct
+import PhoneBg from "../../public/new.mp4"; // Ensure this path is correct
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(window.matchMedia("(max-width: 768px)").matches);
