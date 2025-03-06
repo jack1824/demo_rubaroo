@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-const Timer = () => {
-  // Set target date: March 29, 2025, at 10:00 AM
-  const targetDate = new Date("March 29, 2025 10:00:00").getTime();
+const Timer = ({ isMobile = false }) => {
+  // Set target date: April 11, 2025, at 10:00 AM
+  const targetDate = new Date("April 11, 2025 10:00:00").getTime();
 
   // Function to calculate remaining time
   function calculateTimeLeft() {
@@ -33,15 +33,24 @@ const Timer = () => {
     return () => clearInterval(timer);
   }, []);
 
+  // Container classes based on device:
+  // Mobile: Fixed at bottom center, a bit above the bottom, scaled down, horizontally arranged.
+  // Desktop: Absolutely positioned vertically on the left.
+  const containerClasses = isMobile
+    ? "fixed bottom-8 left-1/2 transform -translate-x-1/2 scale-90 flex flex-row items-center justify-center p-3  text-white rounded-lg shadow-lg"
+    : "absolute left-0 top-1/2 -translate-y-1/2 flex flex-col items-center p-4  text-white rounded-r-lg shadow-lg";
+
+  // Layout classes for the timer values:
+  const timerLayoutClasses = isMobile ? "flex flex-row gap-4" : "flex flex-col gap-4";
+
   return (
-    <div className="absolute left-0 top-1/2  -translate-y-1/2 flex flex-col items-center p-4 transform hover:scale-95 transition duration-300 contrast-75 hover:contrast-100 drop-shadow-x bg-black/50 text-white rounded-r-lg shadow-lg">
-      {/* Pulsating "TIME LEFT" Text */}
-      <div className="text-xl font-bold tracking-wider transform hover:scale-95 transition duration-300 contrast-75 hover:contrast-100 drop-shadow-x text-red-500 animate-pulse mb-4">
+    <div className={containerClasses}>
+      {/* Pulsating "TIME LEFT" Label */}
+      <div className="text-xl font-bold tracking-wider text-red-500 animate-pulse mb-4">
         TIME LEFT
       </div>
-
-      {/* Countdown Timer */}
-      <div className="flex flex-col transform hover:scale-95 transition duration-300 contrast-75 hover:contrast-100 drop-shadow-x gap-4">
+      {/* Countdown Timer Layout */}
+      <div className={timerLayoutClasses}>
         <div className="flex flex-col items-center">
           <span className="text-4xl font-extrabold text-color1">
             {timeLeft.days}
