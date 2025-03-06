@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { AlignJustify ,X} from "lucide-react";
-import SidebarComponent from './SidebarComponent';
+
 
 const navLinks = [
   { name: "About", link: "/about" },
