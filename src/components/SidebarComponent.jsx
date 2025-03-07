@@ -23,12 +23,12 @@ export default function SidebarComponent() {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 right-0 w-64 h-full bg-color3 text-color1 shadow-lg flex flex-col p-5 z-40 transform transition-transform duration-500  ${
+        className={`fixed top-0 right-0 w-64 h-full bg-blue-900 text-color1 shadow-lg flex flex-col p-5 z-40 transform transition-transform duration-500  ${
           sideBar ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* <h2 className="text-xl font-bold">Sidebar Menu</h2> */}
-        <ul className="mt-14 space-y-2 font-bold text-[20px] ">
+        <ul className="mt-14 space-y-2 font-italic text-[20px] ">
           {navLinks.map((item, index) => (
             <li key={index} className="relative group mt-4">
               <a
